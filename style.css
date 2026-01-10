@@ -3909,3 +3909,85 @@ input, textarea, select {
     font-size: 0.85rem;
   }
 }
+
+/* =============================================
+   ADDITIONAL PREMIUM ENHANCEMENTS
+   Smooth scrolling & visual polish
+   ============================================= */
+
+/* Smooth scroll behavior for all browsers */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Premium focus styles */
+*:focus-visible {
+  outline: 2px solid hsl(38, 85%, 50%);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Better text rendering */
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth image loading */
+img {
+  transition: opacity 0.3s ease;
+}
+
+img[src] {
+  opacity: 1;
+}
+
+/* Premium hover lift effect */
+.btn:hover,
+.spice-card:hover,
+.category-card:hover,
+.product-card:hover,
+.why-card:hover,
+.value-card:hover {
+  will-change: transform;
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+  .btn:hover,
+  .spice-card:hover,
+  .category-card:hover,
+  .product-card:hover {
+    transform: none;
+  }
+}
+
+/* Safe area insets for notched phones */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .footer-bottom {
+    padding-bottom: calc(2rem + env(safe-area-inset-bottom));
+  }
+}
+
+/* Improved link tap highlight */
+a, button {
+  -webkit-tap-highlight-color: hsla(38, 85%, 50%, 0.15);
+}
+
+/* Card hover state refinements */
+.spice-card,
+.product-card,
+.category-card {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Smooth scroll anchor offset for fixed header */
+:target::before {
+  content: "";
+  display: block;
+  height: 100px;
+  margin-top: -100px;
+}
