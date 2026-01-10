@@ -1,0 +1,562 @@
+/* =============================================
+   SKYRAA GLOBAL EXPORT - PREMIUM MOBILE ENHANCEMENTS
+   Modern, Premium UI/UX with Fixed Bottom Navigation
+   ============================================= */
+
+/* =============================================
+   FIXED BOTTOM MOBILE NAVIGATION BAR
+   ============================================= */
+.mobile-bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: linear-gradient(135deg, 
+    hsla(220, 25%, 6%, 0.98) 0%, 
+    hsla(220, 30%, 8%, 0.96) 100%
+  );
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  padding: 0;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+  border-top: 1px solid hsla(38, 85%, 50%, 0.15);
+  box-shadow: 
+    0 -8px 32px hsla(0, 0%, 0%, 0.25),
+    0 -2px 16px hsla(38, 85%, 50%, 0.08);
+}
+
+/* Show only on mobile */
+@media (max-width: 767px) {
+  .mobile-bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  /* Add padding to body to prevent content overlap with bottom nav */
+  body {
+    padding-bottom: calc(70px + env(safe-area-inset-bottom, 0));
+  }
+  
+  /* Hide original mobile menu button when bottom nav is visible */
+  .mobile-menu-btn {
+    display: none !important;
+  }
+  
+  /* Hide footer on mobile since we have bottom nav */
+  .footer {
+    padding-bottom: 80px;
+  }
+}
+
+.mobile-bottom-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  flex: 1;
+  padding: 12px 8px 10px;
+  color: hsla(45, 30%, 97%, 0.6);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-bottom-nav a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 32px;
+  height: 3px;
+  background: linear-gradient(90deg, hsl(38, 85%, 50%), hsl(45, 90%, 60%));
+  border-radius: 0 0 4px 4px;
+  transition: transform 0.3s ease;
+}
+
+.mobile-bottom-nav a.active::before {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.mobile-bottom-nav a svg {
+  width: 22px;
+  height: 22px;
+  stroke-width: 1.8;
+  transition: transform 0.3s ease;
+}
+
+.mobile-bottom-nav a span {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.mobile-bottom-nav a.active {
+  color: hsl(38, 85%, 55%);
+}
+
+.mobile-bottom-nav a.active svg {
+  transform: scale(1.1);
+}
+
+.mobile-bottom-nav a:active {
+  transform: scale(0.95);
+}
+
+/* =============================================
+   ENHANCED MOBILE HEADER
+   ============================================= */
+@media (max-width: 767px) {
+  .header {
+    padding: 12px 0 !important;
+  }
+  
+  .header.scrolled {
+    padding: 10px 0 !important;
+  }
+  
+  /* Keep header always visible on mobile */
+  .header.header-hidden {
+    transform: translateY(0) !important;
+  }
+  
+  .logo-text {
+    font-size: 1.1rem !important;
+    letter-spacing: 0.01em;
+    font-weight: 700;
+  }
+  
+  .logo-image {
+    height: 32px !important;
+  }
+  
+  .logo {
+    gap: 8px !important;
+  }
+  
+  /* CTA button on mobile header */
+  .header-cta {
+    display: flex !important;
+    padding: 8px 14px !important;
+    font-size: 0.7rem !important;
+    letter-spacing: 0.03em;
+  }
+}
+
+/* =============================================
+   PREMIUM MOBILE TYPOGRAPHY
+   ============================================= */
+@media (max-width: 767px) {
+  .hero-title {
+    font-size: 1.85rem !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.01em;
+  }
+  
+  .hero-title .highlight {
+    display: inline;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.95rem !important;
+    line-height: 1.65 !important;
+    opacity: 0.9;
+  }
+  
+  .section-title {
+    font-size: 1.65rem !important;
+    line-height: 1.25;
+  }
+  
+  /* Page hero for internal pages - move content up so header text is visible */
+  .page-hero {
+    padding-top: 80px !important;
+    padding-bottom: 24px !important;
+  }
+  
+  .page-hero h1 {
+    font-size: 1.65rem !important;
+    line-height: 1.25;
+    margin-top: 8px !important;
+  }
+  
+  .page-hero .section-label {
+    margin-top: 0 !important;
+  }
+}
+
+/* =============================================
+   ENHANCED TOUCH INTERACTIONS
+   ============================================= */
+@media (max-width: 767px) {
+  /* Larger touch targets */
+  .btn {
+    min-height: 48px;
+    padding: 14px 24px !important;
+  }
+  
+  .nav-link {
+    padding: 12px 16px;
+  }
+  
+  /* Touch-friendly cards */
+  .spice-card,
+  .category-card,
+  .product-card,
+  .why-card,
+  .value-card {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Prevent accidental hover effects on touch */
+  .spice-card:hover,
+  .category-card:hover,
+  .product-card:hover {
+    transform: none;
+  }
+  
+  .spice-card:active,
+  .category-card:active,
+  .product-card:active {
+    transform: scale(0.98);
+    transition: transform 0.15s ease;
+  }
+}
+
+/* =============================================
+   PREMIUM MOBILE SPACING & LAYOUT
+   ============================================= */
+@media (max-width: 767px) {
+  .container {
+    padding: 0 16px !important;
+  }
+  
+  .section-padding {
+    padding: 48px 0 !important;
+  }
+  
+  /* Hero adjustments */
+  .hero {
+    min-height: 100svh;
+  }
+  
+  .hero-content {
+    padding-top: 100px !important;
+    text-align: center;
+  }
+  
+  .hero-badge {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+  
+  .hero-actions {
+    margin-bottom: 32px !important;
+  }
+  
+  .hero-stats {
+    flex-direction: row !important;
+    gap: 16px !important;
+    padding: 24px 0 !important;
+    justify-content: space-between;
+  }
+  
+  .hero-stat {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .hero-stat-value {
+    font-size: 1.5rem !important;
+  }
+  
+  .hero-stat-label {
+    font-size: 0.6rem !important;
+  }
+}
+
+/* =============================================
+   MOBILE CARDS GRID OPTIMIZATION
+   ============================================= */
+@media (max-width: 767px) {
+  .spices-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+  
+  .spice-card {
+    aspect-ratio: 3/4 !important;
+    max-width: none !important;
+    border-radius: 16px !important;
+  }
+  
+  .spice-card h3 {
+    font-size: 0.95rem !important;
+  }
+  
+  .spice-card p {
+    font-size: 0.7rem !important;
+  }
+  
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+  
+  .product-card {
+    border-radius: 14px !important;
+  }
+  
+  .product-card-content {
+    padding: 12px !important;
+  }
+  
+  .product-card-content h3 {
+    font-size: 0.85rem !important;
+  }
+  
+  .product-card-content p {
+    font-size: 0.65rem !important;
+  }
+}
+
+/* =============================================
+   ENHANCED SHADOWS & DEPTH FOR MOBILE
+   ============================================= */
+@media (max-width: 767px) {
+  .why-card,
+  .value-card,
+  .vm-card,
+  .contact-form-card,
+  .contact-info {
+    box-shadow: 
+      0 4px 20px hsla(0, 0%, 0%, 0.08),
+      0 1px 4px hsla(0, 0%, 0%, 0.04);
+  }
+  
+  .product-card,
+  .spice-card,
+  .category-card {
+    box-shadow: 
+      0 2px 12px hsla(0, 0%, 0%, 0.06),
+      0 1px 3px hsla(0, 0%, 0%, 0.04);
+  }
+}
+
+/* =============================================
+   IMPROVED MOBILE FORM STYLING
+   ============================================= */
+@media (max-width: 767px) {
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  
+  .contact-info,
+  .contact-form-card {
+    padding: 24px !important;
+    border-radius: 20px !important;
+  }
+  
+  .contact-info h2 {
+    font-size: 1.5rem !important;
+  }
+  
+  .contact-form-card h3 {
+    font-size: 1.35rem !important;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 16px !important; /* Prevents iOS zoom on focus */
+    padding: 14px 16px !important;
+    border-radius: 12px !important;
+  }
+  
+  .form-group label {
+    font-size: 0.7rem !important;
+  }
+  
+  .form-row {
+    gap: 0 !important;
+  }
+}
+
+/* =============================================
+   PREMIUM MOBILE FOOTER
+   ============================================= */
+@media (max-width: 767px) {
+  .footer {
+    padding-top: 48px !important;
+  }
+  
+  .footer-grid {
+    gap: 32px !important;
+    grid-template-columns: 1fr !important;
+  }
+  
+  .footer-brand .logo-text {
+    font-size: 1.4rem !important;
+  }
+  
+  .footer-column {
+    text-align: center;
+  }
+  
+  .footer-column h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .footer-column ul {
+    align-items: center;
+  }
+  
+  .footer-contact-item {
+    justify-content: center;
+  }
+  
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: 8px !important;
+    text-align: center;
+    padding-bottom: 90px !important;
+  }
+}
+
+/* =============================================
+   SMOOTH ANIMATIONS FOR MOBILE
+   ============================================= */
+@media (max-width: 767px) {
+  /* Reduce motion for better performance */
+  .reveal {
+    transition: opacity 0.5s ease, transform 0.5s ease !important;
+  }
+  
+  /* Disable parallax on mobile for performance */
+  .hero-bg img {
+    transform: none !important;
+  }
+  
+  /* Simpler hover states */
+  .why-card:hover,
+  .value-card:hover {
+    transform: translateY(-4px) !important;
+  }
+}
+
+/* =============================================
+   QUALITY BANNER MOBILE OPTIMIZATION
+   ============================================= */
+@media (max-width: 767px) {
+  [style*="grid-template-columns:1.2fr 1fr"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 32px !important;
+    padding: 0 16px !important;
+  }
+  
+  [style*="font-size:42px"] {
+    font-size: 1.65rem !important;
+  }
+  
+  [style*="font-size:36px;color:#e63946"] {
+    font-size: 1.75rem !important;
+  }
+  
+  [style*="gap:40px;flex-wrap:wrap"] {
+    gap: 24px !important;
+    justify-content: space-around !important;
+  }
+}
+
+/* =============================================
+   GLIMPSE SECTION MOBILE
+   ============================================= */
+@media (max-width: 767px) {
+  .glimpse-section {
+    padding: 48px 0 !important;
+  }
+  
+  .glimpse-item {
+    gap: 24px !important;
+    margin-bottom: 48px !important;
+  }
+  
+  .glimpse-content h2 {
+    font-size: 1.5rem !important;
+  }
+  
+  .glimpse-content p {
+    font-size: 0.95rem !important;
+  }
+  
+  .glimpse-stats {
+    gap: 20px !important;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .stat-number {
+    font-size: 1.65rem !important;
+  }
+  
+  .glimpse-image {
+    height: 240px !important;
+    border-radius: 16px !important;
+  }
+  
+  .glimpse-badge {
+    top: 16px !important;
+    right: 16px !important;
+    padding: 10px 16px !important;
+    font-size: 0.75rem !important;
+  }
+}
+
+/* =============================================
+   ACCESSIBILITY IMPROVEMENTS
+   ============================================= */
+@media (max-width: 767px) {
+  /* Focus states for touch */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid hsl(38, 85%, 55%);
+    outline-offset: 2px;
+  }
+  
+  /* Minimum tap target size */
+  .social-links a {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+/* =============================================
+   PRINT STYLES (hide nav on print)
+   ============================================= */
+@media print {
+  .mobile-bottom-nav,
+  .header {
+    display: none !important;
+  }
+  
+  body {
+    padding: 0 !important;
+  }
+}
